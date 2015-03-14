@@ -1,19 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Source:</strong>
-  <%= @snippet.source %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @snippet.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @snippet.content %>
-</p>
-
-<%= link_to 'Edit', edit_snippet_path(@snippet) %> |
-<%= link_to 'Back', snippets_path %>
+<div class="snippet-detail">
+  <div class="details">
+    <p id="notice"><%= notice %></p>
+    <h1><%= @snippet.name %></h1>
+    <p><%= link_to "Link to source", @snippet.source %></p>
+    <%= link_to 'Edit', edit_snippet_path(@snippet) %> |
+    <%= link_to 'Back', snippets_path %>
+  </div>
+  <div class="code">
+    <pre>
+      <code>
+        <%= @snippet.content %>
+      </code>
+    </pre>
+  </div>
+</div>
