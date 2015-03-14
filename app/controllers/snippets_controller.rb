@@ -1,4 +1,5 @@
 class SnippetsController < ApplicationController
+  before_action :require_login
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
 
   # GET /snippets
@@ -64,6 +65,14 @@ class SnippetsController < ApplicationController
   end
 
   private
+
+    def require_login
+      unless current_user
+        flash[:error] = "You must be logged in to access this section"
+        redirect_to "/auth/github"
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_snippet
       @snippet = Snippet.find(params[:id])
