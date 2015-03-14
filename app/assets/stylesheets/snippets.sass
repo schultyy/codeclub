@@ -18,6 +18,14 @@
 .snippet-detail
   @include grid-row()
   .details
-    @include grid-column(2)      
+    @include grid-column(2)
   .code
     @include grid-column(10)
+
+.snippet-form
+  margin-left: 25px
+  margin-right: 25px
+  .actions
+    input
+      &[type="submit"]
+        @include button()
