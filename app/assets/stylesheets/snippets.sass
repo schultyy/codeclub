@@ -2,3 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'foundation'
+
+.snippet-list-container
+  .headline
+    @include grid-row()
+  .snippet
+    @include grid-row()
+    .source
+      @include grid-column(10)
+    .actions
+      @include grid-column(2)
+  .new-snippet-link
+    @include grid-row()

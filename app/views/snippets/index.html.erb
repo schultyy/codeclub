@@ -1,29 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class='snippet-list-container'>
+  <div class="headline">
+    <p id="notice"><%= notice %></p>
+    <h1>Listing Snippets</h1>
+  </div>
 
-<h1>Listing Snippets</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Source</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @snippets.each do |snippet| %>
-      <tr>
-        <td><%= snippet.source %></td>
-        <td><%= snippet.name %></td>
-        <td><%= link_to 'Show', snippet %></td>
-        <td><%= link_to 'Edit', edit_snippet_path(snippet) %></td>
-        <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Snippet', new_snippet_path %>
+  <% @snippets.each do |snippet| %>
+  <div class="snippet">
+    <div class="source">
+      <%= link_to snippet.name, snippet.source %>
+    </div>
+    <div class="actions">
+      <%= link_to 'Show', snippet %>
+      <%= link_to 'Edit', edit_snippet_path(snippet) %>
+      <%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+  <% end %>
+  <div class="new-snippet-link">
+    <%= link_to 'New Snippet', new_snippet_path %>
+  </div>
+</div>
