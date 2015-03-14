@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+  #get 'static_pages/home'
 
-  root 'snippets#index'
+  root 'static_pages#home'
   resources :snippets
 
   # The priority is based upon order of creation: first created -> highest priority.
