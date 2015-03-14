@@ -8,15 +8,15 @@
 
 
 languages = [
-  "CSS",
-  "C",
-  "C++",
-  "PHP",
-  "Java",
-  "Ruby",
-  "Python"
+  {name: "CSS", key: "css"},
+  {name: "C", key: "c"},
+  {name: "C++", key: "cpp"},
+  {name: "PHP", key: "php"},
+  {name: "Java", key: "java"},
+  {name: "Ruby", key: "ruby"},
+  {name: "Python", key: "python"}
 ]
 
 languages.each do |language|
-  Language.create(name: language)
+  Language.create(language)
 end
