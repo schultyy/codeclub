@@ -15,10 +15,12 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
+    @languages = Language.all
   end
 
   # GET /snippets/1/edit
   def edit
+    @languages = Language.all
   end
 
   # POST /snippets
@@ -69,6 +71,6 @@ class SnippetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snippet_params
-      params.require(:snippet).permit(:source, :name, :content)
+      params.require(:snippet).permit(:source, :name, :content, :language_id)
     end
 end

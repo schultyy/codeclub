@@ -2,6 +2,7 @@
   <div class="details">
     <p id="notice"><%= notice %></p>
     <h1><%= @snippet.name %></h1>
+    <p>Language <%= @snippet.language.name %></p>
     <p><%= link_to "Link to source", @snippet.source %></p>
     <%= link_to 'Edit', edit_snippet_path(@snippet) %> |
     <%= link_to 'Back', snippets_path %>
