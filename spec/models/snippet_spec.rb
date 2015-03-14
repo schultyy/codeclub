@@ -11,4 +11,9 @@ RSpec.describe Snippet, :type => :model do
     snippet = Snippet.new(:name => 'example', :source => 'example.org')
     expect(snippet.valid?).to be false
   end
+
+  it 'initializes with default for is_private field' do
+    snippet = Snippet.new
+    expect(snippet.is_private).to be true
+  end
 end
