@@ -1,16 +1,18 @@
 <div class="snippet-detail">
+  <h1><%= @snippet.name %></h1>
+  <p id="notice"><%= notice %></p>
   <div class="details">
-    <p id="notice"><%= notice %></p>
-    <h1><%= @snippet.name %></h1>
-    <p>Language <%= @snippet.language.name %></p>
-    <p><%= link_to "Link to source", @snippet.source %></p>
-    <%= link_to 'Edit', edit_snippet_path(@snippet) %> |
-    <%= link_to 'Back', snippets_path %>
+    Language: <%= @snippet.language.name %>
+    <ul class="actions">
+      <li><%= link_to "Link to source", @snippet.source %></li>
+      <li><%= link_to 'Edit', edit_snippet_path(@snippet) %></li>
+      <li><%= link_to 'Back', snippets_path %></li>
+    </ul>
   </div>
   <div class="code">
     <pre>
       <code class="language-<%=@snippet.language.key%>">
-        <%= @snippet.content %>
+        <%=@snippet.content.strip%>
       </code>
     </pre>
   </div>

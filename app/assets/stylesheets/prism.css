@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+java+php+php-extras+coffeescript+c+cpp+python+sql+ruby+csharp+aspnet+scala+haskell+swift+objectivec+perl+handlebars+less+r+erlang+haml+rust+dart+powershell+actionscript+markdown+typescript+fsharp&plugins=line-highlight+line-numbers+show-language */
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+ruby&plugins=line-highlight+show-invisibles+autolinker+file-highlight+show-language+highlight-keywords */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -182,46 +182,30 @@ pre[data-line] {
 		top: auto;
 		bottom: .4em;
 	}
-pre.line-numbers {
-	position: relative;
-	padding-left: 3.8em;
-	counter-reset: linenumber;
+.token.tab:not(:empty):before,
+.token.cr:before,
+.token.lf:before {
+	color: hsl(24, 20%, 85%);
 }
 
-pre.line-numbers > code {
-	position: relative;
+.token.tab:not(:empty):before {
+    content: '\21E5';
 }
 
-.line-numbers .line-numbers-rows {
-	position: absolute;
-	pointer-events: none;
-	top: 0;
-	font-size: 100%;
-	left: -3.8em;
-	width: 3em; /* works for line-numbers below 1000 lines */
-	letter-spacing: -1px;
-	border-right: 1px solid #999;
-
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
+.token.cr:before {
+    content: '\240D';
 }
 
-	.line-numbers-rows > span {
-		pointer-events: none;
-		display: block;
-		counter-increment: linenumber;
-	}
+.token.crlf:before {
+    content: '\240D\240A';
+}
+.token.lf:before {
+    content: '\240A';
+}
 
-		.line-numbers-rows > span:before {
-			content: counter(linenumber);
-			color: #999;
-			display: block;
-			padding-right: 0.8em;
-			text-align: right;
-		}
+.token a {
+	color: inherit;
+}
 pre[class*='language-'] {
 	position: relative;
 }
