@@ -9,16 +9,20 @@
 <body>
   <nav class="top-bar">
     <section class="top-bar-section">
-      <% if current_user %>
         <ul class="right">
-          <li>
-            <a href="#"><%= current_user.name %></a>
-          </li>
-          <li>
-            <%= link_to "Sign out", signout_path %>
-          </li>
+          <% if current_user %>
+            <li>
+              <a href="#"><%= current_user.name %></a>
+            </li>
+            <li>
+              <%= link_to "Sign out", signout_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign in", "/auth/github" %>
+            </li>
+          <% end %>
         </ul>
-      <% end %>
     </section>
   </nav>
   <%= yield %>
