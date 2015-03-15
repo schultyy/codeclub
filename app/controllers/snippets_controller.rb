@@ -1,6 +1,7 @@
 class SnippetsController < ApplicationController
   before_action :require_login
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  before_action :set_language, only: [:new, :edit, :create]
 
   # GET /snippets
   # GET /snippets.json
@@ -16,12 +17,10 @@ class SnippetsController < ApplicationController
   # GET /snippets/new
   def new
     @snippet = Snippet.new
-    @languages = Language.all
   end
 
   # GET /snippets/1/edit
   def edit
-    @languages = Language.all
   end
 
   # POST /snippets
@@ -77,6 +76,10 @@ class SnippetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_snippet
       @snippet = Snippet.find(params[:id])
+    end
+
+    def set_language
+      @languages = Language.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
