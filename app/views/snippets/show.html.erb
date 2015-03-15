@@ -2,11 +2,6 @@
   <h1><%= @snippet.name %></h1>
   <div class="details">
     Language: <%= @snippet.language.name %>
-    <ul class="actions">
-      <li><%= link_to "Link to source", @snippet.source %></li>
-      <li><%= link_to 'Edit', edit_snippet_path(@snippet) %></li>
-      <li><%= link_to 'Back', snippets_path %></li>
-    </ul>
   </div>
   <div class="code">
     <pre>
@@ -14,5 +9,12 @@
         <%=@snippet.content.strip%>
       </code>
     </pre>
+  </div>
+  <div class="actions">
+    <ul class="actions">
+      <li><%= link_to "Link to source", @snippet.source %></li>
+      <li><%= link_to 'Edit', edit_snippet_path(@snippet) %></li>
+      <li><%= link_to 'Back', snippets_path %></li>
+    </ul>
   </div>
 </div>
