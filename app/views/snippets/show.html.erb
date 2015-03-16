@@ -8,6 +8,9 @@
           <div>
             <%= comment.text %>
           </div>
+          <small>
+            <%= comment.user.name %>
+          </small>
           <div>
             <small><%= comment.created_at.strftime("%m/%d/%Y %I:%M%p") %></small>
           </div>
