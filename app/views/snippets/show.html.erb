@@ -17,7 +17,9 @@
             </div>
           </div>
           <div class="image">
-            <%= image_tag comment.user.gravatar_url %>
+            <a class="th" href="<%= comment.user.gravatar_url %>">
+              <%= image_tag comment.user.gravatar_url %>
+            </a>
           </div>
         </div>
       <% end %>
