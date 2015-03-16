@@ -65,7 +65,6 @@ class SnippetsController < ApplicationController
   end
 
   def create_comment
-    puts params.inspect
     snippet = Snippet.find(params[:snippet_id])
     if !snippet
       redirect_to snippet_path(snippet.id)
