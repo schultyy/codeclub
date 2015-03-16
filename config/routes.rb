@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   resources :snippets
+  post '/comments/create', to: 'snippets#create_comment'
   get '/auth/:provider/callback', to: 'sessions#create'
   get "/signout", to: "sessions#destroy", :as => :signout
 

@@ -2,11 +2,34 @@
   <h1><%= @snippet.name %></h1>
   <div class="details">
     Language: <%= @snippet.language.name %>
-    <ul class="actions">
-      <li><%= link_to "Link to source", @snippet.source %></li>
-      <li><%= link_to 'Edit', edit_snippet_path(@snippet) %></li>
-      <li><%= link_to 'Back', snippets_path %></li>
-    </ul>
+    <div class="comments">
+      <% @snippet.comments.each do |comment| %>
+        <div class="comment">
+          <div class="text">
+            <p>
+              <%= comment.text %>
+            </p>
+            <small>
+              <%= comment.user.name %>
+            </small>
+            <div>
+              <small><%= comment.created_at.strftime("%m/%d/%Y %I:%M%p") %></small>
+            </div>
+          </div>
+          <div class="image">
+            <a class="th" href="<%= comment.user.gravatar_url %>">
+              <%= image_tag comment.user.gravatar_url %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+      <%= form_tag '/comments/create', method: 'post' do %>
+        <%= hidden_field_tag "snippet_id", @snippet.id %>
+        <%= label_tag "New comment" %>
+        <%= text_area_tag 'comment_text' %>
+        <%= submit_tag 'Save', class: "small button radius" %>
+      <% end %>
+    </div>
   </div>
   <div class="code">
     <pre>
@@ -14,5 +37,12 @@
         <%=@snippet.content.strip%>
       </code>
     </pre>
+  </div>
+  <div class="actions">
+    <ul>
+      <li><%= link_to "Link to source", @snippet.source %></li>
+      <li><%= link_to 'Edit', edit_snippet_path(@snippet) %></li>
+      <li><%= link_to 'Back', snippets_path %></li>
+    </ul>
   </div>
 </div>

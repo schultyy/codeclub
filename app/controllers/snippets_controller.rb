@@ -64,6 +64,20 @@ class SnippetsController < ApplicationController
     end
   end
 
+  def create_comment
+    snippet = Snippet.find(params[:snippet_id])
+    if !snippet
+      redirect_to snippet_path(snippet.id)
+    end
+    comment = Comment.new
+    comment.text = params[:comment_text]
+    comment.user = current_user
+    snippet.comments << comment
+    snippet.save
+
+    redirect_to snippet_path(snippet.id)
+  end
+
   private
 
     def require_login

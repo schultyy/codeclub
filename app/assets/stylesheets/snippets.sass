@@ -20,12 +20,27 @@
   h1
     @include grid-column(12)
   .details
-    @include grid-column(2)
-    .actions
+    @include grid-column(4)
+    .comments
+      .comment
+        @include grid-row()
+        @include panel()
+        .text
+          @include grid-column(8)
+          p
+            margin: 0px
+        .image
+          @include grid-column(4)
+          .th
+            min-width: 50px
+  .code
+    @include grid-column(8)
+  .actions
+    @include grid-column(12)
+    ul
+      @include inline-list()
       list-style-type: none
       margin: 0px
-  .code
-    @include grid-column(10)
 
 .snippet-form
   margin-left: 25px
