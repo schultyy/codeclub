@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
     return user unless user.nil?
     create! do |user|
       user.provider = auth["provider"]
+      user.gravatar_url = auth["info"]["image"]
       user.uid = auth["uid"]
-      user.name = auth["info"]["login"]
+      user.name = auth["info"]["nickname"]
     end
   end
 end
