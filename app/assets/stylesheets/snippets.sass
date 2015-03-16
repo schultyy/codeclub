@@ -23,7 +23,14 @@
     @include grid-column(4)
     .comments
       .comment
+        @include grid-row()
         @include panel()
+        .text
+          @include grid-column(8)
+          p
+            margin: 0px
+        .image
+          @include grid-column(4)
   .code
     @include grid-column(8)
   .actions

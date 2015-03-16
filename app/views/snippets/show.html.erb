@@ -5,14 +5,19 @@
     <div class="comments">
       <% @snippet.comments.each do |comment| %>
         <div class="comment">
-          <div>
-            <%= comment.text %>
+          <div class="text">
+            <p>
+              <%= comment.text %>
+            </p>
+            <small>
+              <%= comment.user.name %>
+            </small>
+            <div>
+              <small><%= comment.created_at.strftime("%m/%d/%Y %I:%M%p") %></small>
+            </div>
           </div>
-          <small>
-            <%= comment.user.name %>
-          </small>
-          <div>
-            <small><%= comment.created_at.strftime("%m/%d/%Y %I:%M%p") %></small>
+          <div class="image">
+            <%= image_tag comment.user.gravatar_url %>
           </div>
         </div>
       <% end %>
