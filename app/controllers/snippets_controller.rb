@@ -71,6 +71,7 @@ class SnippetsController < ApplicationController
     end
     comment = Comment.new
     comment.text = params[:comment_text]
+    comment.user = current_user
     snippet.comments << comment
     snippet.save
 
