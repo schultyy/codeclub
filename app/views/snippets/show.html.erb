@@ -5,7 +5,12 @@
     <div class="comments">
       <% @snippet.comments.each do |comment| %>
         <div class="comment">
-          <%= comment.text %>
+          <div>
+            <%= comment.text %>
+          </div>
+          <div>
+            <small><%= comment.created_at.strftime("%m/%d/%Y %I:%M%p") %></small>
+          </div>
         </div>
       <% end %>
       <%= form_tag '/comments/create', method: 'post' do %>
