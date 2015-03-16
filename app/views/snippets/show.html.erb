@@ -3,10 +3,16 @@
   <div class="details">
     Language: <%= @snippet.language.name %>
     <div class="comments">
+      <% @snippet.comments.each do |comment| %>
+        <div class="comment">
+          <%= comment.text %>
+        </div>
+      <% end %>
       <%= form_tag '/comments/create', method: 'post' do %>
+        <%= hidden_field_tag "snippet_id", @snippet.id %>
         <%= label_tag "New comment" %>
         <%= text_area_tag 'comment_text' %>
-        <%= submit_tag 'Save' %>
+        <%= submit_tag 'Save', class: "small button radius" %>
       <% end %>
     </div>
   </div>
